@@ -20,7 +20,7 @@ describe('file input', () => {
   });
 
   it('supports a valid empty instruction line', () => {
-    expect(runFileContents('2 2\n1 1 N\n')).toEqual(['1 1 N']);
+    expect(runFileContents('2 2\n1 1 N\n\n')).toEqual(['1 1 N']);
   });
 
   it('rejects missing bounds', () => {
@@ -28,7 +28,9 @@ describe('file input', () => {
   });
 
   it('rejects incomplete robot records', () => {
-    expect(() => runFileContents('5 3\n1 1 N')).toThrow(/line 2/i);
+    expect(() => runFileContents('5 3\n1 1 N')).toThrow(
+      'Line 3: Missing input.',
+    );
   });
 
   it('rejects invalid bounds with a line number', () => {

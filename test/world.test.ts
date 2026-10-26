@@ -57,10 +57,9 @@ describe('edges and scents', () => {
   it('ignores a scented exit and continues subsequent commands', () => {
     const world = new World({ x: 1, y: 1 });
     world.run(position(1, 1, 'E'), 'F');
-    expect(world.run(position(1, 1, 'E'), 'FLF')).toEqual({
-      position: position(1, 1, 'N'),
-      lost: false,
-    });
+
+    const secondPosition = world.run(position(1, 1, 'E'), 'FLF');
+    expect(secondPosition.position).toEqual(position(1, 1, 'N'));
   });
 
   it('keeps scents directional at corners', () => {

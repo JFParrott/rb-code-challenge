@@ -36,10 +36,10 @@ describe('interactive CLI', () => {
   });
 
   it('requires a new start after a loss', async () => {
-    const script = scripted(['0 0', '0 0 n', 'F', 'i', '0 0 e', 'L', 'q']);
+    const script = scripted(['0 0', '0 0 n', 'F', 'i']);
     await script.run();
     expect(script.output).toContain('0 0 N LOST');
-    expect(script.output).toContain('0 0 N');
+    expect(script.output).toContain('Invalid choice. Choose s or q.');
   });
 
   it('exits at any prompt', async () => {
