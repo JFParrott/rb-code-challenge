@@ -1,28 +1,5 @@
 # Mars Robot Orienteering - Red Badger Coding Challenge
 
-## Approach:
-
-1. Read and understand requirements
-2. Provide Claude with context of problem state, business logic and high-level specifications i.e. technology choices
-3. Instruct Claude that a test driven approach should be used
-4. Have Claude produce test suite, ensuring to identify any edge cases and test limits
-5. Review and refine test suite manually to ensure readability and coverage
-6. Have Claude generate implementation
-7. Review and refine implementation, sense checking the approach
-8. Improve readability of implementation
-9. Run test suite and validate results, improving where necessary
-10. Try to break program to identify additional edge cases
-
-### When I chose to avoid AI
-
-- Requirements interpretation
-- Architecture
-- Technical decisions i.e. selecting language, testing framework etc
-- Verification of tests and implementation
-- Code quality
-- Final acceptance
-- Creation of README
-
 ## Setup
 
 In order to run the program, first install necessary dependencies:
@@ -35,9 +12,55 @@ In order to run the program using a .txt file as input (where each new line repr
 
 - npm start -- testfile.txt
 
-Or alternatively, the program can be ran interactively with:
+Or alternatively, the program can be ran interactively. This will allow the user to retain the previous position of the robot and immediately provide a new instruction string e.g. FFRLLFR:
 
 - npm start
+
+At any point the program can be exit by typing 'exit' at any prompt
+
+## Approach:
+
+1. Read and understand requirements
+2. Provide Claude with context of problem state, business logic and high-level specifications i.e. technology choices
+3. Instruct Claude that a test driven approach should be used
+4. Have Claude produce test suite, ensuring to identify any edge cases and test limits
+5. Review and refine test suite manually to ensure readability and coverage
+6. Have Claude generate implementation
+7. Review and refine implementation, sense checking the approach
+8. Iterate on the approach using Claude to ensure extensibility, readability and coverage
+9. Improve readability of implementation
+10. Run test suite and validate results, improving where necessary
+11. Try to break program to identify additional edge cases
+
+### When I chose to avoid AI
+
+- Requirements interpretation
+- Architecture
+- Technical decisions i.e. selecting language, testing framework etc
+- Verification of tests and implementation
+- Code quality
+- Final acceptance
+- Creation of README
+
+## Technical Choices
+
+### TypeScript & Node.js
+
+I chose TypeScript running on Node.js because it provides a lightweight environment for building a CLI application while offering the benefits of static typing.
+
+TypeScript allows the core domain concepts, such as robot positions, orientations, instructions, and grid boundaries, to be represented using explicit types. This improves readability, reduces the likelihood of certain runtime errors, and makes the code easier to maintain and extend.
+
+Node.js also provides built-in functionality for reading terminal input and writing output, avoiding the need for additional CLI frameworks.
+
+### Vitest
+
+I chose Vitest because it provides a straightforward testing experience with TypeScript, supports parameterised tests, and requires relatively little configuration.
+
+### Extensible Instruction Handling
+
+Rather than tightly coupling every instruction to a large conditional statement, I ensured that the approach made it easy for instructions to be mapped to their corresponding behaviours.
+
+This makes it easier to introduce new commands without significantly changing the main instruction-processing flow.
 
 ## Next Steps
 
