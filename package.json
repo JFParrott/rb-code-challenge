@@ -1,0 +1,18 @@
+{
+  "name": "rb-code-challenge",
+  "version": "1.0.0",
+  "description": "Mars Robot Orienteering - A TypeScript Odyssey",
+  "main": "main.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.19.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "author": "",
+  "license": "ISC"
+}
