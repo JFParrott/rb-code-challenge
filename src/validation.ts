@@ -6,7 +6,9 @@ function coordinates(text: string, count: number): string[] {
   const parts = text.trim().split(/\s+/);
 
   if (parts.length !== count)
-    throw new Error(`Expected ${count} whitespace-separated values.`);
+    throw new Error(
+      `Invalid instruction. Expected ${count} whitespace-separated values.`,
+    );
 
   return parts;
 }
